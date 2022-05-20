@@ -1,0 +1,76 @@
+.su-upload {
+  > div {
+    display: flex;
+    flex-direction: column;
+
+    .el-upload {
+      width: 100%;
+      order: 2;
+
+      .upload-btn-box {
+        height: 96px;
+        border: $--border-base-dash;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 16px;
+
+        .el-button {
+          line-height: 0;
+          height: 20px;
+          margin-top: 5px;
+          font-size: $text-size-xs;
+          font-family: $--font-family;
+          color: $color-primary-light;
+        }
+      }
+
+      .upload-btn-box2 {
+        display: flex;
+        align-items: center;
+
+        .el-button {
+          padding: 0;
+
+        }
+
+        > span {
+          font-size: $text-size-default;
+          font-family: $--font-family;
+          color: $color-text-secondary;
+          margin-left: 12px;
+        }
+      }
+    }
+
+    .textBtn {
+      width: auto;
+      padding: 0;
+      text-decoration: none;
+      font-size: $text-size-xs;
+      font-family: $--font-family;
+      color: $color-primary-light;
+    }
+  }
+}
+
+.su-upload {
+  .header-view {
+    .header-title {
+      color: $general100;
+    }
+  }
+
+  // 操作按钮的颜色变动
+  .operation-inside {
+    .su-icon {
+      color: $general60;
+
+      &:hover {
+        color: $blue100;
+      }
+    }
+  }
+
+}

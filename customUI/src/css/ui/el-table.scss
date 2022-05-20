@@ -1,0 +1,338 @@
+.el-table-filter__list {
+  padding: 0;
+
+  .el-table-filter__list-item {
+    line-height: $select-dropdown-height;
+    height: $select-dropdown-height;
+    font-size: $text-size-xs;
+    padding: 0 16px;
+
+    &:hover {
+      color: $general100;
+      background-color: $general30;
+    }
+
+    &.is-active {
+      font-weight: normal;
+      color: $blue100;
+      background-color: $blue30;
+      //background-color: $--table-filter-active-background;
+      //color: $color-primary;
+    }
+
+  }
+}
+
+
+//.el-table__header, .el-table__body, .el-table__footer {
+//border-collapse: initial;
+//}
+
+.el-table__body td .cell {
+  // width: 100%!important;
+  overflow: hidden;
+  // text-overflow: ellipsis;
+  // white-space: nowrap;
+}
+
+// 行hover的样式
+.el-table--enable-row-hover .el-table__body tr:hover > td {
+  background-color: $general30;
+}
+
+// 行选中的样式
+.el-table__body tr.current-row > td {
+  background-color: $blue30 !important;
+}
+
+.el-table th.is-sortable {
+  .caret-wrapper {
+    background: url(../assets/filter-default.png) no-repeat center/10px 14px;
+
+    i {
+      display: none;
+    }
+  }
+}
+
+.el-table th.ascending {
+  .caret-wrapper {
+    background: url(../assets/filter-up.png) no-repeat center/10px 14px;
+  }
+}
+
+.el-table th.descending {
+  .caret-wrapper {
+    background: url(../assets/filter-down.png) no-repeat center/10px 14px;
+  }
+}
+
+.el-table__column-filter-trigger {
+  .el-icon-arrow-down, .el-icon-arrow-up {
+    transform: unset;
+    font-size: 16px;
+    width: $--icon-size-base;
+    height: $--icon-size-base;
+  }
+
+  .el-icon-arrow-down {
+    background: url(../assets/ic_filter.png) no-repeat center/16px 16px;
+  }
+
+  .el-icon-arrow-up {
+    background: url(../assets/ic_filter_focus.png) no-repeat center/16px 16px;
+  }
+
+  .el-icon-arrow-up:before,
+  .el-icon-arrow-down:before {
+    content: 'x';
+    visibility: hidden;
+  }
+}
+
+// 列的高亮效果
+.el-table th .cell.highlight {
+  color: #3d434e;
+
+  .el-table__column-filter-trigger .el-icon-arrow-down {
+    background: url(../assets/ic_filter_focus.png) no-repeat center/16px 16px;
+  }
+}
+
+.el-table-filter__list .el-table-filter__list-item.is-active {
+  background-color: $blue30;
+  color: $blue100;
+}
+
+.header-defalut-row-class .el-checkbox {
+  .el-checkbox__inner {
+    width: $--icon-size-base;
+    height: $--icon-size-base;
+  }
+}
+
+.el-table__row .el-checkbox {
+  .el-checkbox__inner {
+    width: $--icon-size-base;
+    height: $--icon-size-base;
+  }
+}
+
+.el-table--border th:first-child .cell {
+  position: static;
+  overflow: visible;
+}
+
+.el-table-column--selection .cell {
+  overflow: visible !important;
+}
+
+.el-table .cell.el-tooltip {
+  line-height: 18px;
+  height: 18px;
+}
+
+// el-checkbox__input样式放在最上面，会造成全局的el-checkbox__input直接守影响
+.el-table {
+  // 解决table没数据可以勾选bug
+  .el-checkbox__input.is-disabled.is-checked .el-checkbox__inner::after {
+    display: none;
+  }
+
+
+  &:before {
+    display: none;
+  }
+}
+
+
+// 表格布局
+.su-table-view {
+  height: calc(100% - 2px);
+  width: calc(100% - 2px);
+  //border: 1px solid $general60;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+
+  .su-table-content-view {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
+    overflow-x: hidden;
+  }
+
+  .su-table {
+    flex: 1;
+  }
+
+  .su-table-with-left-view {
+    border-left: none;
+  }
+
+  .su-table-header-view {
+    background-color: white;
+  }
+
+  // 底部分页的边距大小
+  .su-table-footer-view {
+    background-color: white;
+    padding: 20px;
+  }
+
+  // 列的边框分割线
+  .el-table th .cell {
+    border-left: solid 1px $general50;
+  }
+
+  .header-defalut-row-class th:first-child {
+    .cell {
+      border-left: none !important;
+    }
+  }
+
+  //.el-table-column--selection .cell {
+  //  border-left: none !important;
+  //}
+
+  // 启用表格，
+  .el-table--border th, .el-table--border td {
+    border-right: none;
+  }
+
+  // 过滤图标
+  .el-table .el-table__column-filter-trigger {
+    display: flex;
+    align-items: center;
+  }
+
+  // 列的内容高度，- 边框线的高度
+  .el-table th .cell,
+  .el-table .el-table__column-filter-trigger,
+  .el-table .caret-wrapper {
+    height: 24px;
+  }
+
+  .su-table-left-view {
+    width: 293px;
+    height: 100%;
+    border-right: 1px solid #D7DBEC;
+    background-color: white;
+  }
+
+  // 列头的背景
+  .header-defalut-row-class td, .header-defalut-row-class th {
+    background-color: $general30;
+    //border-top: solid 1px $general50;
+    border-bottom: solid 1px $general50;
+  }
+
+  .su-table-header-view {
+    padding: 20px 16px 20px 16px;
+    display: flex;
+    flex-direction: row;
+
+    .su-table-header-left-view {
+      flex: 1;
+      text-align: left;
+    }
+
+    .su-table-header-left-view,
+    .su-table-header-left-view > div {
+      word-break: keep-all;
+      margin-right: 24px;
+      display: flex;
+      flex-direction: row;
+    }
+
+    .su-table-header-right-view {
+      flex: 1;
+      text-align: right;
+
+      & > div {
+        word-break: keep-all;
+        display: flex;
+        justify-content: end;
+
+        & > div {
+          margin-left: 16px;
+        }
+
+        & > div:first-child {
+          margin-left: 0;
+        }
+      }
+    }
+
+    .el-button + .el-button {
+      margin-left: 16px !important;
+    }
+  }
+}
+
+.el-table--group::after, .el-table--border::after {
+  display: none;
+}
+
+
+.el-table--border {
+  border-left: none;
+  //border-right: 1px solid #d7dbec;
+}
+
+.el-table--group, .el-table--border {
+  border-color: #d7dbec !important;
+}
+
+//.none-out-border-table-view {
+//  border: none;
+//}
+
+.el-table__empty-block {
+  border-bottom: 1px solid #d7dbec !important;
+  border-left: 1px solid #d7dbec !important;
+}
+
+.header-defalut-row-class th {
+  border-top: none;
+  border-bottom: none;
+}
+
+.el-table--border th:first-child,
+.el-table--border td:first-child {
+  //border-right: 1px solid #d7dbec;
+  border-left: 1px solid #d7dbec;
+}
+
+
+//.el-table__body-wrapper,
+.el-table__header-wrapper,
+.header-defalut-row-class,
+  //.header-defalut-row-class th:nth-last-child(2),
+.el-table--border td:last-child {
+  border-right: 1px solid #d7dbec !important;
+  //border-left: 1px solid #d7dbec;
+}
+
+.el-table__header-wrapper {
+  box-sizing: border-box;
+}
+
+.el-table th .cell {
+  border-left: none;
+}
+
+// 居中的处理
+.el-table th.is-center {
+  .cell {
+    justify-content: center;
+  }
+}
+
+// 居右的处理
+.el-table th.is-right {
+  .cell {
+    justify-content: end;
+  }
+}

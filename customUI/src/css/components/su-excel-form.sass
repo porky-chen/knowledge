@@ -1,0 +1,80 @@
+
+.su-excel-form
+  width: 100%
+  display: flex
+
+  .el-form
+    width: 250px
+    height: 100%
+    padding: 0 $--padding-base $--padding-base
+    background-color: $color-white
+    border: $--border-base
+    margin-right: $--padding-base
+    flex: none
+    overflow: auto
+    box-sizing: border-box
+    position: relative
+
+    .el-form-item
+      margin: 0
+
+  article
+    height: 100%
+    padding: $--padding-base
+    flex: auto
+    overflow: hidden
+    border: $--border-base
+    display: flex
+    flex-direction: column
+    box-sizing: border-box
+
+    .el-button-group
+      flex: none
+      margin-bottom: $--padding-base
+
+    .su-excel-form-content
+      overflow: auto
+      flex: auto
+
+      table
+        border-collapse: collapse
+        border: $--border-base
+        background-color: $color-white
+        table-layout: fixed
+
+        td
+          border-top: $--border-base
+          border-left: $--border-base
+          font-weight: normal
+          text-align: left
+          color: $color-text-primary
+          position: relative
+          padding: 0
+
+          &.select::after
+            content: ''
+            width: 10px
+            height: 10px
+            border-radius: $--border-radius-xl
+            background-color: red
+            display: block
+            position: absolute
+            top: 0
+            left: 0
+            z-index: 99
+
+          > span
+            width: 100%
+            padding: 8px
+            display: inline-block
+            box-sizing: border-box
+
+          .el-input,
+          .el-input-number,
+          .el-select,
+          .el-date-editor.el-input
+            width: 100%
+
+          .el-input__inner,
+          .el-textarea__inner
+            border: none

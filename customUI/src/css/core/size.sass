@@ -1,0 +1,47 @@
+.fit
+  width: 100% !important
+  height: 100% !important
+
+.full-width
+  width: 100% !important
+
+.full-height
+  height: 100% !important
+
+.window-width
+  width: 100vw !important
+
+.window-height
+  height: 100vh !important
+
+@each $k, $v in $spaces
+  .ma-#{$k}
+    margin: $v !important
+
+  .ml-#{$k}, .mx-#{$k}
+    margin-left: $v !important
+
+  .mr-#{$k}, .mx-#{$k}
+    margin-right: $v !important
+
+  .mt-#{$k}, .my-#{$k}
+    margin-top: $v !important
+
+  .mb-#{$k}, .my-#{$k}
+    margin-bottom: $v !important
+
+  .pa-#{$k}
+    padding: $v !important
+
+  .pl-#{$k}, .px-#{$k}
+    padding-left: $v !important
+
+  .pr-#{$k}, .px-#{$k}
+    padding-right: $v !important
+
+  .pt-#{$k}, .py-#{$k}
+    padding-top: $v !important
+
+  .pb-#{$k}, .py-#{$k}
+    padding-bottom: $v !important
+

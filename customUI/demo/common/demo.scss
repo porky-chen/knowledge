@@ -1,0 +1,30 @@
+.title {
+    margin-top: 48px;
+    margin-bottom: 16px;
+    height: 21px;
+    font-size: 16px;
+    font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    font-weight: 700;
+    text-align: left;
+    color: #3d434e;
+    line-height: 21px;
+}
+
+.content {
+    margin: 20px;
+}
+
+.row {
+    width: 300px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.code {
+    display: block;
+    height: 60px;
+    line-height: 60px;
+    vertical-align: middle;
+    background-color: #fafafa;
+}

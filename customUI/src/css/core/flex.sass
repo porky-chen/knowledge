@@ -1,0 +1,27 @@
+.flex
+  display: flex !important
+
+@each $v in row, row-reverse, column, column-reverse
+  .#{$v}
+    flex-direction: $v !important
+
+@each $k, $v in left flex-start, right flex-end, center center, space-between space-between, space-around space-around
+  .#{$k}
+    justify-content: $v !important
+
+@each $k, $v in stretch stretch, middle center, top flex-start, bottom flex-end, baseline baseline
+  .#{$k}
+    align-items: $v !important
+
+@each $v in nowrap, wrap, wrap-reverse
+  .#{$v}
+    flex-wrap: $v !important
+
+@each $k, $v in flex-none none, flex-auto auto
+  .#{$k}
+    flex: $v !important
+
+.self-
+  @each $k, $v in stretch stretch, middle center, top flex-start, bottom flex-end, baseline baseline
+    &#{$k}
+      align-self: $v !important

@@ -1,0 +1,94 @@
+.su-checkbox {
+  .el-checkbox {
+    // 勾选框
+    .el-checkbox__inner {
+      width: 16px;
+      height: 16px;
+      border-radius: 4px;
+    }
+
+    // 文本
+    .el-checkbox__label {
+      height: 16px;
+      font-size: $text-size-xs;
+      font-family: $--font-family;
+      color: $general100;
+    }
+  }
+
+  // 勾选的状态样式
+  .el-checkbox.is-checked .el-checkbox__inner {
+    background-color: $blue100;
+    border-color: $blue100;
+  }
+
+  .el-checkbox.is-checked .el-checkbox__label {
+    color: $blue100;
+  }
+
+  // 不确定全选下的状态样式
+  .el-checkbox.su-checkbox-indeterminate .el-checkbox__label {
+    color: $blue100;
+  }
+
+  // 禁用的状态样式
+  .el-checkbox.is-disabled .el-checkbox__inner {
+    background-color: $general30;
+    border-color: $general50;
+  }
+
+  .el-checkbox.is-disabled .el-checkbox__label {
+    color: $general60;
+  }
+}
+
+//
+//.el-checkbox ::v-deep .el-checkbox__label {
+//  padding-left: 6px;
+//}
+//
+//.el-checkbox ::v-deep .el-checkbox__inner::after {
+//  border: 2px solid $color-white;
+//  border-top: 0 none;
+//  border-inline-start-style: none;
+//  left: 6px;
+//  top: 6px;
+//}
+//
+//.el-checkbox ::v-deep .el-checkbox__input.is-checked .el-checkbox__inner {
+//  color: $color-primary-light;
+//}
+//
+//.el-checkbox
+//  ::v-deep
+//  .el-checkbox__input.is-disabled.is-checked
+//  .el-checkbox__inner {
+//  background-color: $color-info;
+//  border-color: $color-info;
+//}
+//
+//.el-checkbox ::v-deep .el-checkbox__input.is-disabled .el-checkbox__inner {
+//  background: $button-primary-disabled-plain;
+//  border: 1px solid rgba(149, 155, 166, 0.51);
+//}
+//
+//.el-checkbox
+//  ::v-deep
+//  .el-checkbox__input.is-disabled.is-checked
+//  .el-checkbox__inner::after {
+//  border-color: $color-white;
+//}
+//
+//.el-checkbox.is-checked ::v-deep .el-checkbox__label {
+//  color: $color-primary-light;
+//}
+//
+//.el-checkbox.is-disabled.is-checked ::v-deep .el-checkbox__label {
+//  color: $color-text-secondary;
+//  opacity: 1;
+//}
+//
+//.el-checkbox.is-disabled ::v-deep .el-checkbox__label {
+//  color: $button-default-color-text;
+//  opacity: 0.5;
+//}

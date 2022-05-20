@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'MyFont';
+    src: url("./font/my-font.woff2") format('woff2'),
+        url("./font/my-font.eot") format('eot');
+    font-weight: 700;
+    font-style:normal;
+}
+body{
+    /*background: #409eff;*/
+    color:red;
+    font-family: 'MyFont';
+    background: url("./images/seeking.jpg");
+}

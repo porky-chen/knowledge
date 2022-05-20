@@ -1,0 +1,123 @@
+//su-dialog弹框样式修改
+.v-modal {
+  opacity: 0.5;
+  background: #12223e;
+}
+
+.el-dialog__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .el-dialog {
+    position: unset;
+    top: unset;
+    left: unset;
+    transform: unset;
+  }
+}
+
+.su-dialog {
+  * {
+    box-sizing: border-box !important;
+  }
+
+  box-shadow: 0px 8px 20px 0px rgba(12, 25, 49, 0.10);
+  border-radius: $--border-radius-lg;
+  overflow: hidden;
+
+  .el-dialog__header {
+    // padding: $select-padding-horizontal !important;
+    padding: 0 56px 0 32px;
+    background: $color-white;
+    // border-radius: $--border-radius-lg $--border-radius-lg 0px 0px;
+    border-bottom: 1px solid #dde2ee;
+    position: relative;
+
+    .el-dialog__title {
+      line-height: $select-line-height;
+      font-size: $text-size-sm;
+      color: $color-title;
+      font-family: $--family-yahei-bold;
+      font-weight: 900;
+    }
+
+    .el-dialog__headerbtn {
+      top: 50%;
+      transform: translateY(-50%);
+      right: 0;
+      height: 100%;
+      width: 56px;
+
+      &:hover {
+        .el-dialog__close {
+          color: $color-white;
+        }
+
+        background-color: #F45A6D;
+        //border-radius: 2px;
+      }
+    }
+
+    .el-dialog__close {
+      font-size: 16px;
+      font-weight: bold;
+
+      //&:hover {
+      //  color: $color-white;
+      //  background-color: #F45A6D;
+      //  border-radius: 2px;
+      //}
+    }
+
+
+  }
+
+  .el-dialog__body {
+    overflow-y: auto !important;
+    padding: 24px 32px 0 !important;
+    max-height: 731px;
+    margin-top: -1px;
+    margin-bottom: -1px;
+  }
+
+  .el-dialog__footer {
+    padding: 24px 32px;
+    display: flex;
+    justify-content: flex-end;
+
+  }
+
+}
+
+.el-icon-loading:before {
+  content: "\e6cf" !important;
+}
+
+// .dialog-footer {
+//   display: flex;
+//   justify-content: flex-end;
+//   align-items: center;
+// }
+
+// .dialog-footer button {
+//   margin-left: 10px;
+// }
+.el-dialog {
+  background-color: transparent;
+}
+
+.el-dialog__footer,
+.el-dialog__header,
+.el-dialog__body {
+  background-color: white;
+}
+
+.el-dialog.fixDialog {
+  transform: translate(-50%, 0);
+  top: 0;
+}
+
+.is-fullscreen .el-dialog__body {
+  max-height: unset;
+}

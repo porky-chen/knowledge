@@ -1,0 +1,112 @@
+.demo{
+    white-space: nowrap;
+    width: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    transform: translate(10px);
+    transform: rotate(45deg);
+    transform: scale(1.0,1.5);
+    transform: scaleX(1.0);
+    transform: scaleY(1.0);
+}
+/*2D*/
+.style2D{
+    transform: translate(10px);
+    transform: rotate(45deg);
+    transform: scale(1.0,1.5);
+    transform: scaleX(1.0);
+    transform: scaleY(1.0);
+}
+/*3D*/
+.style3D{
+    transform: rotateX(45deg);
+    transform: rotateY(45deg);
+    transform: rotateZ(45deg);
+}
+/*过度*/
+.styleTranstion{
+    /*transition: 需要添加效果css属性  持续时间,多个;*/
+
+
+    /*速度曲线 transition-timing-function: linear;匀速*/
+    /*transition-timing-function: ease;先缓慢开始，加速，缓慢结束*/
+    /*transition-timing-function: ease-in;缓慢开始*/
+    /*transition-timing-function: ease-out;缓慢结束*/
+    /*transition-timing-function: ease-in-out;开始，结束，缓慢*/
+    /*transition-timing-function: cubic-bezier(0.0, 0.0, 1.0, 1.0);自定义*/
+    /*transition-delay：延迟时间 1s;*/
+
+    /*transition的拆分
+    transition-property: ;
+    transition-duration: ;
+    transition-timing-function: ;
+    transition-delay: ;
+    */
+}
+/*动画*/
+/*动画代码*/
+@keyframes example{
+    from { /*0%*/
+        background-color: red;
+    }
+    to { /*100%*/
+        background-color: blue;
+    }
+    0% {}
+    25% {}
+    50% {}
+    100% {}
+}
+.style_animation{
+    animation-name: example; /*给元素绑定动画名*/
+    animation-duration: 4s; /*动画持续时间*/
+    animation-delay: 2s; /*动画延迟时间*/
+    animation-iteration-count: 3; /*指定动画运行几次 infinite一直运行*/
+    animation-direction: normal; /*向前播放、向后播放还是交替播放 reverse\alternate\alternate-reverse*/
+    animation-timing-function: linear;/*曲线速度*/
+    animation-fill-mode: forwards;/*none\forwards\backwards\both*/
+
+    /*animation: animation-name animation-duration animation-timing-function animation-delay animation-iteration-count animation-direction;简写*/
+}
+
+
+@media (only | not) (**screen屏幕宽高 | print打印机 | speech阅读)  and (min-width | max-width : 600px){
+    根据不同屏幕设计样式
+}
+
+    /*
+    CSS 文本溢出、整字换行、换行规则以及书写模式
+    */
+    .textOverFlow{
+        overflow: hidden; /*溢出隐藏*/
+        white-space: nowrap; /*不换行,默认换行*/
+        text-overflow: ellipsis; /*...显示溢出*/
+        text-overflow: clip; /*切割*/
+        word-wrap: break-word;/*长单词换行*/
+        word-break: keep-all;/*换行规则,keep-all 只能连字符打断，break-all 任何地方打断*/
+        writing-mode: horizontal-tb;/*书写模式  水平放置，默认*/
+        writing-mode: vertical-rl; /*垂直放置，从上往下*/
+    }
+
+    /*
+    渐变色
+    */
+    .bg{
+        background-image: radial-gradient(circle red, green, blue 10%); /*径向渐变*/
+        background-image: linear-gradient(); /*线性渐变 默认to bottom ,可 to (right|left|top|right bottom|...)*/
+    }
+    /*单位*/
+    /*绝对长度*/
+    /*
+    cm \ mm \ in 英寸(1in = 96px = 2.54cm)\ px * 像素(1px = 1/96th of 1 in)\ pt 点(1pt = 1 / 72 of 1 in)\ pc 派卡(1pc = 12pt)
+    px 相对观看设备 viewport
+    相对长度
+    em 相对元素的字体大小(font-size) 2em相对于当前字体大小的两倍
+    rem 相对于根元素字体大小
+    vw 相对于视口*宽度的1%
+    vh 相对于视口*高度的1%
+    vmin 相对于视口*较小尺寸的 1％
+    vmax 相对于视口*较大尺寸的 1％
+    % 相对父元素
+    */

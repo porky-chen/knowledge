@@ -1,0 +1,140 @@
+.su-layout
+  flex: auto
+  background-color: $color-layout-background
+  overflow: auto
+  position: relative
+  height: 100%
+
+  .su-layout-aside
+    width: $--su-layout-aside-width
+    background-color: $color-layout-background
+    position: absolute
+    top: 0
+    left: 0
+    bottom: 0
+    z-index: 9
+    overflow-y: auto
+    overflow-x: hidden
+    //padding: 10px 0 0 10px
+    box-sizing: border-box
+
+    & + .su-layout-content
+      margin-left: $--su-layout-aside-width
+
+    &-content
+      height: 100%
+      background: white
+      overflow-x: hidden
+      // box-shadow: $--su-layout-shadow
+      display: flex
+      flex-direction: column
+
+    &-header
+      //padding: 12px 0px 20px 12px
+      height: $su-app-header-height
+
+      > div
+        height: 100%
+
+    &-title
+      height: 52px
+      background: $color-table-background
+      font-size: 14px
+      font-weight: bolder
+      font-family: $--font-family
+      text-align: left
+      padding: 0 0 0 16px
+      color: $color-title
+      line-height: 52px
+
+    &-box
+      flex: 1
+
+      > div
+        height: 100%
+
+  .su-layout-content
+    height: 100%
+    //padding: 10px 10px 0 10px
+    box-sizing: border-box
+    overflow: hidden
+    display: flex
+    flex-direction: column
+  // border-radius: 32px
+
+  .su-layout-filter
+    //padding: $--su-layout-space
+    background-color: $color-white
+    //box-shadow: $--su-layout-shadow
+    //margin-bottom: $--su-layout-space
+    flex: none
+    overflow: hidden
+    height: $su-app-header-height
+
+    > div
+      height: 100%
+
+    .el-form-item
+      margin-bottom: $--su-layout-space
+
+  .su-layout-main-wrapper
+    background: #F7F8FA
+    // box-shadow: $--su-layout-shadow
+    display: flex
+    flex-direction: column
+    padding: 12px
+
+    flex: auto
+    overflow: hidden
+
+  .su-layout-top
+    flex: none
+    margin-bottom: $--su-layout-space
+
+    > div
+      display: flex
+      justify-content: center
+
+    .el-button
+      &.el-button--text
+        &.is-disabled
+          color: $color-text-placeholder !important
+
+  .su-layout-action
+    flex: none
+    //padding: 0 $--su-layout-space
+    //margin-bottom: $--su-layout-space
+    > div
+      display: flex
+      justify-content: space-between
+
+    .el-button
+      &.el-button--text
+        &.is-disabled
+          color: $color-text-placeholder !important
+
+  .su-layout-main
+    flex: auto
+    display: flex
+    overflow: auto
+    // padding: 0 20px
+
+    > div
+      flex: 1
+      overflow: hidden
+      min-height: 100%
+
+  .su-layout-footer
+    background-color: $color-white
+    // box-shadow: $--su-layout-shadow
+    text-align: right
+    flex: none
+    overflow: hidden
+    padding: 0px 12px 0 12px
+  // margin-top: $--su-layout-space
+
+  .su-layout-default
+    flex: auto
+
+    &:first-child
+      padding: $--su-layout-space

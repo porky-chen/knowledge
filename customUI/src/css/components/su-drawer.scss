@@ -1,0 +1,19 @@
+.su-drawer {
+  .el-drawer__header {
+    padding-right: 0 !important;
+
+    .el-drawer__close-btn {
+      height: 100%;
+      width: 56px;
+
+      &:hover {
+        .el-dialog__close {
+          color: $color-white;
+        }
+
+        background-color: #F45A6D;
+        //border-radius: 2px;
+      }
+    }
+  }
+}

@@ -1,0 +1,112 @@
+Nodejs的性能优化
+1、避免使用同步代码
+Nodejs是单线程。处理多并发的请求的时候要避免要线程等待阻塞。Node是一个为了实现异步操作---事件型程序；即使设定了同步的操作方法也会出现发送同步/阻塞的调用。
+2、关闭套接字池
+在处理同一台主机发出的并发请求时，会导致出现瓶颈，每台主机默认限制只能有5个套接字；好方法：增大maxSockets的值或关闭套接字池  http.request({agent:false,...})
+3、不要让静态资源使用Nodejs
+利用内容传递网络（CDNs），能将世界范围内的静态资源拷贝到服务器上。好处：能减少我们nodejs服务器的负载量；CDNs可以让静态内容在里用户较近的服务器上传递，以此来减少等待时间
+4、客户端渲染
+5、使用gzip
+服务器和客户端支持gzip来压缩请求和响应，可以充分使用
+6、并行化
+7、session自由化
+外部session存储如MongoDB、Redis
+8、使用二进制模块
+用二进制取代JavaScript模块
+9、用标准的V8 JavaScript 取代客户端库
+不同的浏览器支持的函数方法不同导致，低效的实现功能。直接用标准的V8 JavaScript函数替代客户端库，性能会显著提高
+10、代码保持小且轻
+11、使用node-clinic快速定位性能问题
+开源的一款Nodejs性能诊断工具，快速定位性能问题
+npm i -g clinic  诊断性能工具  
+npm i -g autocannon 压测工具
+clinic doctor -- node server.js // 开启服务进程
+autocannon http://localhost:3000  // 压测完毕关闭clinic开启的进程，就会自动生成报告
+clinic bubbleprof -- node server.js  // clinic bubbleprof 检查I/O问题
+重复clinic doctor
+clinic flame -- node server.js 可以定位哪里出现了密集计算
+12、正确编写异步代码
+13、优化GC
+外部引用外部缓存如mongo或Redis
+node --max-semi-space-size=128 app.js 修改新生代的内存上限,减少GC的次数  根据业务进行压错分配新生代内存，并不是越大越好
+一般分配64MB或者128MB效果好合理
+14、正确使用Stream（流）
+文件传输的时候可以直接通过管道响应不需要读出，大程度提高了性能。
+pipe(a).pipe(b)当多个流链式使用的时候会出现其中一个流（失败/错误）导致所有的流的出错需要关闭
+解决：使用pipeline管理stream,pipeline(
+fs.createReadStream('archive.tar'),
+zlib.createGzip(),
+fs.createWriteStream('archive.tar.gz'),
+(err) => {}
+)
+
+
+
+
+/*
+* Node中间件原理
+*
+*/
+1、从HTTP请求到结束中处理逻辑，对请求和响应进行处理，实现中间件模式，考虑多中间件共存问题
+const middleware = (req,res,next) => { // 基本
+	// 请求逻辑
+	next()
+}
+
+// 简单多中间件使用 - 中间件设计模式
+const m1 = (req,res,next) => {
+	console.log('m1 run')
+	next()
+}
+const m2 = (req,res,next) => { // 需依赖第三方插件或API,需要在异步中间件中执行next,如验证、识别
+	console.log('m2 run')
+	fetch('/url').then(response => {
+		next()
+	})
+}
+const m3 = (req,res,next) => {
+	console.log('m3 run')
+	next()
+}
+
+const middlewares = [m1,m2,m3] // 中间件集合
+
+function useApp(req,res){
+	const next = () => { // 模拟next()的执行依次调用中间件
+		// 从头截取第一个中间件 - m1
+		const middleware = middlewares.shift()
+		if(middleware){
+			middleware(req,res,next)
+		}
+	}
+	next()
+}
+
+useApp() // 初次请求流进入
+
+// 如使用日志中间件、请求监控中间件，会在业务处理前和处理后执行相关逻辑，这个时候需要对next的二次处理，可以把next包装成期约promise，通过then继续完成逻辑
+function useApp(req,res){
+	const next = () => {
+		const middleware = middlewares.shift()
+		if(middleware){
+			return Promise.reslove(middleware(req,res,next))
+		}else{
+			return Promise.reslove('end')
+		}
+	}
+	next()
+}
+// 此时的调用
+const m1 = (req,res,next)=> {
+	console.log('m1 start')
+	return next().then(() => {
+		console.log('m1 end')
+	})
+}
+// 使用 async await
+const m1 = async (req,res,next)=>{
+	let result = await next()
+	return result
+}
+
+// 总结：中间件原理就是实现HTTP请求、响应过程中的逻辑处理

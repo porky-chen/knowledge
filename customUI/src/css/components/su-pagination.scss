@@ -1,0 +1,158 @@
+.su-pagination {
+  justify-content: flex-end;
+  line-height: 32px;
+  font-size: $text-size-xs;
+  font-family: $--font-family;
+  font-weight: 400;
+  color: $color-text-regular;
+  height: 32px;
+  display: flex;
+  align-items: center;
+
+  .pagination-total {
+    margin-right: 13px;
+  }
+
+  .pagination-size {
+    margin-right: 16px;
+    display: flex;
+    align-items: center;
+
+    .el-select {
+      width: 60px;
+      margin: 0 5px;
+
+      .el-input {
+        width: 100%;
+
+        .el-input__inner {
+          width: 100%;
+          //padding: 0 8px !important;
+          padding: 0 8px 0 12px !important;
+          height: 32px;
+        }
+      }
+    }
+  }
+
+  .el-pagination {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0;
+    font-weight: normal;
+
+    &::after {
+      display: none;
+    }
+
+    &::before {
+      display: none;
+    }
+
+    button {
+      width: 32px;
+      height: 32px;
+      margin-right: 10px !important;
+      margin-left: 0 !important;
+      background: $color-white !important;
+      border: 1px solid $--border-color-base;
+      border-radius: 2px;
+    }
+
+    .el-pager {
+      display: flex;
+      align-items: center;
+      line-height: 32px;
+
+      li {
+        min-width: 32px;
+        height: 32px;
+        line-height: 32px;
+        margin-right: 10px !important;
+        margin-left: 0 !important;
+        background: $color-white !important;
+        border: 1px solid $--border-color-base;
+        border-radius: 2px;
+      }
+
+      .active {
+        background: $blue100 !important;
+        border-color: $blue100;
+        border-radius: 2px;
+      }
+    }
+
+    .btn-next {
+      margin-right: 0 !important;
+    }
+
+    .el-pagination__total {
+      margin: 0 12px 0 16px;
+      line-height: 32px;
+      height: 32px;
+      font-size: $text-size-xs;
+    }
+  }
+
+  .pagination-jumper {
+    display: flex;
+    align-items: center;
+
+
+    // number计数器
+    .el-input-number {
+      width: 100%;
+      // 组件样式 高度
+      height: $height-md;
+      // 组件样式 按钮
+      line-height: $height-md;
+
+      .el-input-number__decrease,
+      .el-input-number__increase {
+        display: none;
+      }
+
+      .el-input__inner {
+        padding: 0 12px;
+        text-align: center;
+        color: black;
+      }
+    }
+
+    .el-input-number {
+      height: 32px;
+    }
+
+    input {
+      width: 32px;
+      height: 32px;
+      line-height: 32px;
+      margin: 0 6px;
+      padding: 0 5px !important;
+    }
+
+    .el-input-number {
+      width: auto;
+    }
+  }
+}
+
+// 每页的 - 分页数字 - 自定义页数
+.su-pagination .pagination-jumper .el-input-number .el-input__inner,
+.su-pagination .el-pagination .el-pager li,
+.su-pagination .pagination-size .el-select .el-input .el-input__inner {
+  color: $general100;
+}
+
+// 字体的颜色
+.su-pagination .el-pagination .el-pagination__total,
+.su-pagination {
+  color: $general70;
+}
+
+.su-pagination .el-pagination .el-pagination__total,
+.su-pagination .pagination-size,
+.su-pagination .pagination-total {
+  word-break: keep-all;
+}

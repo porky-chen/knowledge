@@ -1,0 +1,58 @@
+.su-switch {
+  .el-switch__core {
+    width: 40px;
+    height: 24px;
+    border-radius: 12px;
+    // 默认 - 关
+    background-color: $blue40;
+    border: none;
+
+    &:after {
+      width: 17px;
+      height: 17px;
+      top: 3px;
+      left: 3px;
+    }
+
+    //&:hover {
+    //  background-color: $blue60;
+    //}
+  }
+
+  .el-switch__label {
+    color: $general100;
+  }
+
+  // 禁用状态
+  .el-switch.is-disabled .el-switch__core {
+    //background-color: $blue60;
+    background-color: $general50;
+  }
+
+  .el-switch.is-disabled .el-switch__label {
+    color: $general60;
+  }
+
+  // 选中的样式
+  .el-switch__label.is-active {
+    color: $blue100;
+  }
+
+  .el-switch.is-checked .el-switch__core {
+    background-color: $blue100;
+  }
+
+  // 选中禁用状态
+  .el-switch.is-checked.is-disabled .el-switch__core {
+    background-color: $general50;
+  }
+
+  .el-switch.is-disabled.is-checked .el-switch__label {
+    color: $general60;
+  }
+
+  // 开关选中后的圆点样式
+  .el-switch.is-checked .el-switch__core::after {
+    margin-left: -20px;
+  }
+}

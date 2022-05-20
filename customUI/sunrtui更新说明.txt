@@ -1,0 +1,162 @@
+## 更新日志
+
+1.1.139 - 2022-05-19 dengjie
+1：添加审批进度和审批状态组件及文档说明
+
+1.1.138 - 2022-0-18 温腾
+1：el-table.scss修改表格边框信息
+
+1.1.137 - 2022-05-17 dengjie
+1：sutable type=slot时 添加show-overflow-tooltip配置
+
+1.0.113 - 2021-2-14 温腾
+1：-0.015会自动转为0.015的问题修复。
+2：el-input-number显示样式的修复。
+3：su-input的value默认为undefined。
+4：su-batch下的数字输入框的样式修复。添加边框和居中。
+5: su--messagebox的提示内容优先使用自定义的。
+
+1.0.111 - 2021-1-20 李晓令
+1：su-table添加原生的filter-change事件。
+
+1.0.110 - 2021-1-18 温腾
+1: su-date-picker同时支持之前自定义的changeDate事件
+
+1.0.109 - 2021-1-18 李晓令
+1：su-form修复select中无法使用clearable。
+
+1.0.108 - 2021-1-12 温腾
+1：su-tree内容长度计算的修复。
+
+1.0.101 - 2021-12-22 温腾
+1：su-button和su-tabs颜色的调整。
+2：su-form下的su-input(textarea)的高度修复。
+3：su-date-picker的当天日期交互效果的调整。
+4：表格外边框，视频标题栏的背景色，树节点的高度。
+5：各种输入框的文本颜色加深，一些控件的颜色调整。
+6：dialog的水平垂直居中的调整以修复内容模糊。
+7：su-upload的头部栏添加了两个插槽。headerCustomItem和headerTipItem。
+8：su-form里的su-upload进行全量属性支持。
+
+1.0.86 - 2021-12-7 李晓令
+1：su-form-batch的使用了element组件的问题修复。
+
+1.0.82 - 2021-12-6 温腾
+1: su-navigator支持自定义用户旁边的按钮。
+2: su-drawer的custom-class属性的修复。
+3: su-navigator菜单导航栏交互的调整。
+4：su-menu的聚焦颜色的变动修复。
+5: su-menu从当前打开的路由聚焦菜单选项逻辑的修复。
+6：su-menu内的图片图标的大小处理优化。
+7：菜单图标出现移动的修复，鼠标移入视图的z-index设置为很大。
+8：su-upload的表格columns参数的调整支持。
+9：su-tree交互颜色的调整。调整和su-table类似。
+10: su-tree悬浮提示的文本框背景色的修复。
+11：su-form-batch的使用了element组件的问题修复。
+
+1.0.55 - 2021-11-30 温腾
+1：su-date组件的名称转su-date-picker，和element的名称类似。
+2: 上传组件对res响应内容抛出。使用者可对其自定义。
+3：su-input的最小值，最大值的限制处理，由blur时控制。不在input时控制。
+4: su-table的表头信息的align放置问题修复。
+5: 取消按钮样式的调整，删除按钮样式的调整。
+6：抽屉的关闭按钮的样式调整。
+
+1.0.45 - 2021-11-30 温腾
+1: element禁用清单逻辑的修复。
+
+1.0.39 - 2021-11-29 - 温腾
+1：su-ezuikit海康视频组件的发布。
+2: 消息弹窗的z-index层级调整。
+3: 海康组件的支持指定标清还是高清的预览模式。
+4: su-dialog的append-to-body特性的修复。
+5: 海康组件的一些按钮支持自定义。
+6: 海康组件的顶部按钮可自定义。
+7: 菜单组件支持新创建打开。
+8: 海康视频组件的头部栏和底部栏支持关闭。
+9: su-table的table-left-view区域的修复。
+10：su-form禁用下可开放上传附件的预览按钮。
+11: su-menu下的菜单项focus下的样式修复。
+12: 对element-ui的直接引用转而采用lib下的。
+13: su-upload对附件标题的参数开放以可自定义标题内容。
+
+1.0.19 - 2021-11-16 - 温腾
+1：su-table的header-right的插槽布局的修复。
+2：su-table的列头的border-top多了一个的修复。
+3: su-select的change事件同时抛出选择的option对象。
+4: su-upload内容为空时，底部边框应显示的问题修复。
+5: su-upload控件完善对fileType的支持。
+6: su-input，su-select，su-cascader的placeholder的默认设置。
+7: su-table下不用列表页面的表格风格的属性控制。
+8: su-form里的su-date的v-model的修复。
+9: su-tree添加title，及right的img和icon信息。
+10: 一些输入框支持error模式，无需放在form里。
+11: su-table分割线的修复。
+12: su-file-upload的data属性支持，默认是fileType。
+13: su-file-uplaod的header信息的完善。
+14: su-file-uplaod对多张图片上传的回调修复。
+
+1.0.0 - 2021-11-16 - 温腾
+1：1.0.0版本库正式发布
+
+0.3.87 - 2021-10-22 - 温腾
+1：git迁移过程中导致ic_upload_sell，ic_upload_disable名称内出现了空格，导致对图片的引用失效。
+
+0.3.86 - 2021-09-28 - 温腾
+1：su-chehckbox的勾选，禁用同时使用时，勾选效果丢失的修复。
+
+0.3.85 - 2021-09-12 - 温腾
+1：su-table的bug修复。isFilter和type=slot共用出现死循环。对type=slot也支持了filters。
+
+0.3.82 - 2021-09-03 - 温腾
+1：su-dialog添加支持el-dialog的fullscreen特性
+
+0.3.81 - 2021-09-01 - 温腾
+1：删除掉第二页的角色后，页数由2变成了1，没有自动切换回原来的第一页数据
+
+0.3.76 - 2021-08-23 - 温腾
+1：su-autocomplete组件在su-form内的校验修复。
+2：su-autocomplete的disabled属性支持
+3: su-upload的headers支持追加自定义的头部信息。
+
+0.3.71-20210514
+1.su-table增加点击整行不默认勾选checkBox属性
+2.su-form支持el-tooltip效果
+3.su-form的el-cascader支持popper-class特性
+4.增加导入导出、发布 icon按钮。
+5.bug修复 上传限制文件数为1时发生异常后无法显示上传按钮
+6.su-table增加各种类型输入框，日期，字符，单选等
+7.su-date 字段type=date，dateType=datetimerange，只读状态的样式优化
+8.su-upload 如果不设定文件类型，则支持所有文件后缀名上传
+9.主题颜色完善好
+10.批量操作的删除按钮加鼠标经过交互
+11.文档底部增加项目中用到的第三方组件和函数库外链
+12.table的index宽度可定义indexwidth
+13.messagebox弹框只能显示2行现改为自适应高度
+14.增加Dialog 打开的open回调方法
+15.su-table增加slot插槽
+
+0.3.52-20210120
+1.su-form-batch修改UI 添加showOverflowTooltip 添加textarea的showOverflowTooltip
+
+0.3.52-20210120
+1.su-form-batch修改
+
+0.3.51-20210119
+1.文档完善
+
+0.3.50-20210111
+1.功能优化
+  form表单select新增返回勾选中的对象
+
+0.3.49-20210109
+1.功能优化
+  package.json新增script命令upload 执行npm run upload后修订号版本自动+1 并实现自动打包、上传npm包
+  如果打包成功会出现高亮粉笔文字 package success
+  如果上传成功会出现高亮粉笔文字 publish success
+  出现 publish success 代表上传npm包成功
+
+
+0.3.38-20210108
+1.bug修复；
+2.修复form表单问题

@@ -1,0 +1,191 @@
+.el-menu-item
+  &.is-active,
+  &.is-opened,
+  &:focus,
+  &:hover
+    background-color: #181824 !important
+    color: white !important
+
+.su-menu
+  flex: none
+  position: relative
+  overflow-y: auto
+  overflow-x: hidden
+  max-width: $--menu-width
+  height: 100%
+  width: 100%
+  background-color: #1E1E2D
+  color: #787881
+
+  .su-menu-hidebtn
+    width: 16px
+    height: 117px
+    position: absolute
+    z-index: 1000
+    background: $color-white
+    cursor: pointer
+    border-radius: 70px 0 0 70px
+    right: 0
+    top: calc(50% - 35px)
+    display: flex
+    align-items: center
+    transform: translateY(-50%)
+
+    i
+      opacity: .5
+
+  .su-menu-icon
+    display: flex
+    align-items: center
+    justify-content: center
+    width: 16px
+    height: 16px
+    flex-shrink: 0
+
+    .icon
+      display: inline-block
+      width: 100%
+      height: 100%
+      background-color: #787881
+      mask-repeat: no-repeat
+      mask-size: 100%
+
+    img
+      width: auto
+      max-width: 16px
+      height: auto
+      max-height: 16px
+      margin: 0
+
+      svg
+        width: 16px
+        height: 16px
+        margin: 0
+
+        path
+          color: $--menu-item-fill
+
+  .el-menu
+    width: $--menu-width-collapsed
+    border: 0
+    background-color: inherit
+
+    &:not(.el-menu--collapse)
+      width: $--menu-width
+
+  .el-menu-item
+    .el-tooltip
+      display: flex !important
+      align-items: center
+
+  .el-menu-item,
+  .el-submenu__title
+    font-size: $--menu-item-font-size
+    color: inherit
+    height: 40px
+    line-height: 40px
+    display: flex
+    align-items: center
+
+    .el-submenu__icon-arrow
+      transform: rotate(-90deg)
+      color: $--menu-item-color
+      margin-top: -5px
+
+  // 交互效果
+  .el-submenu
+    &.is-opened
+      background-color: #181824
+
+      .su-menu-icon 
+        .icon
+          background-color: #3699ff
+
+      .active-img
+        display: block
+
+      .normal-img
+        display: none
+
+    &.is-opened .el-submenu__title
+      color: white
+
+  .el-menu-item,
+  .el-submenu__title
+    .active-img
+      display: none
+
+    .normal-img
+      display: block
+
+    &.is-active,
+    &.is-opened,
+    &:hover
+      background-color: #181824
+      color: white
+
+      .su-menu-icon 
+        .icon
+          background-color: #3699ff
+
+      .active-img
+        display: block
+
+      .normal-img
+        display: none
+
+  .el-submenu.is-opened > .el-submenu__title .el-submenu__icon-arrow
+    transform: rotate(0deg)
+
+.menu-name
+  margin-left: 6px
+
+// 高亮图片的样式
+//.active-img
+  //filter: hue-rotate(70deg)
+
+// 收起的菜单样式
+.el-menu--vertical
+  background-color: #1E1E2D
+  color: #787881
+  margin-left: 4px
+
+  .el-menu--popup
+    min-width: 150px
+
+  .el-menu--popup-right-start
+    background-color: inherit
+    margin-left: 0
+    margin-right: 0
+
+  .el-menu-item
+    background-color: inherit
+    color: inherit
+    height: 40px
+    line-height: 40px
+
+.el-menu--vertical,
+.el-menu--vertical ul
+  border-radius: 4px
+
+  ul
+    li:first-child
+      border-top-right-radius: 4px
+      border-top-left-radius: 4px
+
+    li:last-child
+      border-bottom-right-radius: 4px
+      border-bottom-left-radius: 4px
+
+
+// 2021-12-3的样式调整。
+.su-menu-popover-class
+  display: none
+
+.su-menu-item-title
+  margin-left: 6px
+
+.su-menu-collapse
+  .su-menu-item-title
+    display: none
+

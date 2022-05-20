@@ -1,0 +1,222 @@
+
+*
+  // color: $color-white !important
+  position: static
+
+
+// Form
+.el-form
+  .el-form-item
+    margin-bottom: $--form-item-margin-bottom
+    display: flex
+
+  .el-form-item__content
+    margin-left: 0 !important
+    flex: 1
+
+  .el-form-item__label
+    padding-right: 12px
+    font-size: $text-size-xs
+    font-family: $--font-family
+    text-align: right
+    color: $color-title
+
+  textarea
+    font-family: $--font-family !important
+
+.el-input--prefix .el-input__inner
+  padding-left: 30px !important
+  padding-right: 30px !important
+
+.el-input--mini .el-input__inner
+  line-height: 28px
+  height: 28px
+
+.el-input-number.is-controls-right[class*=mini] ::v-deep [class*=increase],
+.el-input-number.is-controls-right[class*=mini] ::v-deep [class*=decrease]
+  line-height: 15px
+
+.el-textarea.is-disabled .el-textarea__inner,
+.el-input.is-disabled .el-input__inner
+  background-color: $color-white
+  color: $general100
+  cursor: default
+
+.el-input__inner
+  font-family: $--font-family
+
+// Table
+.el-table
+  .cell
+    border: 0
+
+
+  .is-group
+    th
+      background-color: transparent !important
+
+.el-table__column-filter-trigger i
+  font-size: $text-size-sm
+
+// Tree
+.el-tree
+  font-size: $font-size-base
+  width: 100%
+
+// Tabs
+.el-tabs
+  .el-tabs__header
+    background-color: $color-white
+    margin: 0
+
+  .el-tabs__item
+    font-size: 1rem
+    box-shadow: none !important
+
+.el-tabs__active-bar
+  height: 4px
+
+// Radio
+.el-radio-group
+  .el-radio-button__inner
+    font-size: $font-size-base
+
+  .el-radio-button__orig-radio:checked + .el-radio-button__inner
+    color: $color-primary
+    background-color: $color-white
+    border-color: $--border-color-base
+    box-shadow: none
+
+// Menu
+.el-menu--popup
+  padding: 0
+
+.el-menu--vertical
+  //.el-menu-item
+    //font-size: $--menu-item-font-size
+    //background: $--menu-item-fill
+    //color: $--menu-item-color
+
+    //&:hover,
+    //&.is-active
+    //  background: $--menu-item-color-active
+    //  font-weight: bold
+    //  color: $color-white
+
+  img
+    width: $--menu-icon-size
+    height: $--menu-icon-size
+
+// 滚动条样式
+::-webkit-scrollbar-track-piece
+  background-color: $--menu-item-color-scrollbar
+
+// 滚动条整体部分,必须要设置
+::-webkit-scrollbar
+  width: 5px
+  height: 10px
+
+// 滚动条的滑块按钮
+::-webkit-scrollbar-thumb
+  background-color: $--menu-item-color-scrollbar-thumb
+  background-clip: padding-box
+  min-height: 28px
+
+::-webkit-scrollbar-thumb:hover
+  background-color: $--menu-item-color-scrollbar-thumb-hover
+
+// 滚动条的上下两端的按钮
+//::-webkit-scrollbar-button
+// height: 0
+
+
+// 折叠面板
+.el-collapse-item__header
+  line-height: $height-lg
+  font-weight: bold
+
+.el-collapse-item__content
+  padding: 10px 0
+
+.el-button--warning.is-plain,
+.el-button--success.is-plain,
+.el-button--danger.is-plain,
+.el-button--primary.is-plain,
+.el-button--info.is-plain
+  background: $color-white
+
+::placeholder
+  font-family: $--font-family
+
+::-webkit-input-placeholder
+  font-family: $--font-family
+
+::-moz-placeholder
+  font-family: $--font-family
+
+::-ms-input-placeholder
+  font-family: $--font-family
+
+// 提醒
+.el-notification
+  justify-content: flex-start !important
+
+.el-tree--highlight-current .el-tree-node.is-current > .el-tree-node__content
+  color: $color-primary-lighter
+
+// 改变table筛选按钮的样式
+.el-table-filter__bottom button
+  margin-right: 2px
+  background: $color-primary
+  color: $color-white
+  border-radius: 2px
+
+  &:hover
+    background: $color-primary
+    color: $color-white
+
+.el-table-filter__bottom button.is-disabled
+  background: $color-text-placeholder
+  color: $color-white
+  border-radius: 2px
+
+// 全局调整el-tabs样式
+.el-tabs--card > .el-tabs__header .el-tabs__item.is-active
+  border-color: $--border-color-base
+  background: $color-primary-lightest
+  color: $color-white
+
+// 设置dialog上下左右居中
+.el-dialog
+  display: flex
+  flex-direction: column
+  margin: 0 !important
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+  max-height: calc(100% - 30px)
+  max-width: calc(100% - 30px)
+
+  .el-dialog__body
+    overflow-x: hidden
+    overflow-y: auto
+
+//.el-cascader-menu__wrap
+//  width: 100%
+
+//.el-cascader .el-input .el-icon-arrow-down
+//  width: 10px
+//  height: 6px
+//  font-size: 0
+//  background-image: url(../assets/ic_down.png)
+//  background-repeat: no-repeat
+//  background-position: center
+//  position: absolute
+//  right: 7px
+//  top: 50%
+//  margin-top: -3px
+//  transform: rotate(50)
+
+#app
+  color: $general100

@@ -1,0 +1,6 @@
+*.sh
+*.md
+*.scss
+*.woff
+*.ttf
+src/components/su-ezuikit/ezuikit-source

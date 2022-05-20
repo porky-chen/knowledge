@@ -1,0 +1,16 @@
+.el-alert.el-alert--success{
+	color: $green100;
+	background-color: $green40;
+}
+.el-alert.el-alert--info{
+	background-color: $blue40;
+	color: $blue100;
+}
+.el-alert.el-alert--warning{
+	background-color: $yellow40;
+	color: $yellow100;
+}
+.el-alert.el-alert--error{
+	background-color: $red40;
+	color: $red100;
+}

@@ -1,0 +1,181 @@
+// tab切换样式
+.cards-tab {
+  height: 36px;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 0 24px;
+  cursor: pointer;
+  font-size: $text-size-xs;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: $--font-family;
+  color: $general70;
+
+  word-break: keep-all;
+  white-space: nowrap;
+
+  &:hover {
+    //color: $--cards-tab-hover-color !important;
+  }
+}
+
+//按钮型
+.tab-button {
+  display: flex;
+
+  .cards-tab {
+    border: 1px solid #0083FD;
+    color: #0083FD;
+
+    &:first-child {
+      border-radius: 4px 0px 0px 4px;
+    }
+
+    &:last-child {
+      border-radius: 0px 4px 4px 0px;
+    }
+
+    & + .cards-tab {
+      border-left: none;
+    }
+
+    &:hover {
+      background: $blue30;
+    }
+  }
+
+  .active:hover,
+  .active {
+    border-color: #0083FD;
+    background: #0083FD;
+    color: white;
+  }
+}
+
+//按钮型下划线
+.tab-button-underline {
+  display: flex;
+  position: relative;
+  box-sizing: border-box;
+  padding-left: 20px;
+
+  .cards-tab {
+    border: 1pt solid $general50;
+    border-bottom: none;
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+    padding: 0 $--padding-base;
+    height: $height-lg;
+    line-height: $height-lg;
+
+    &:first-child {
+      border-radius: 4px 0px 0px 4px;
+    }
+
+    &:last-child {
+      border-radius: 0px 4px 0 0px;
+    }
+
+    & + .cards-tab {
+      border-left: none;
+    }
+  }
+
+  .active {
+    border-bottom: 1pt solid $color-white;
+    color: #0083FD;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1pt;
+    background-color: $general50;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+//文字
+.tab-text {
+  display: inline-block;
+  position: relative;
+
+  .cards-tab {
+    height: 20px;
+    padding: 0;
+    z-index: 2;
+    display: inline-block;
+    line-height: 20px;
+    position: relative;
+
+    & + .cards-tab {
+      margin-left: 36px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background-color: $color-text-regular;
+        left: -20px;
+        top: 50%;
+        transform: translate(0, -50%);
+      }
+    }
+  }
+
+  .active {
+    color: #0083FD !important;
+  }
+}
+
+//文字下划线
+.tab-text-underline {
+  display: block;
+  height: 40px;
+  position: relative;
+  // padding-top: 10px;
+  .cards-tab {
+    height: 40px;
+    padding: 10px 10px 0;
+    z-index: 2;
+    display: inline-block;
+    line-height: 19px;
+    position: relative;
+
+    & + .cards-tab {
+      margin-left: 36px;
+    }
+  }
+
+  .active {
+    color: #0083FD;
+
+    &::after {
+      content: "";
+      width: 100%;
+      height: 2px;
+      background-color: #0083FD;
+      position: absolute;
+      left: 0;
+      bottom: 0px;
+    }
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: $general50;
+    bottom: 0px;
+    left: 0;
+  }
+}

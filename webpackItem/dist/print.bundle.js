@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkwebpackitem=self.webpackChunkwebpackitem||[]).push([[740],{569:(e,o,n)=>{n.r(o),n.d(o,{default:()=>t,CONSTANT:()=>l,variable:()=>s,C:()=>a,fn:()=>f,a:()=>{},b:()=>{},c:()=>{}}),console.log("only first render !");const t=()=>{console.log("export default a () => {}")},l=42;let s=69;function c(e){this.name=e}class a extends c{method(){console.log("method")}}function f(){console.log("export a fun")}}}]);
+//# sourceMappingURL=print.bundle.js.map

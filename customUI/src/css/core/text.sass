@@ -1,0 +1,25 @@
+.text-
+  @each $k, $v in $font-sizes
+    &#{$k}
+      font-size: $v !important
+
+  @each $v in lighter, normal, bold
+    &#{$v}
+      font-weight: $v !important
+
+  @each $v in left, center, right, justify
+    &#{$v}
+      text-align: $v !important
+
+  &justify:after
+    content: ""
+    width: 100%
+    display: inline-block
+    overflow: hidden
+    height: 0
+
+  &ellipsis
+    overflow: hidden !important
+    text-overflow: ellipsis !important
+    white-space: nowrap !important
+

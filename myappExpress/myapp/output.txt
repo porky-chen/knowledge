@@ -1,0 +1,1 @@
+写入流中的数据：hello node stream  我是output.txt的文件内容

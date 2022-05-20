@@ -1,0 +1,212 @@
+/*
+*  Webpack
+*/
+// webpack.config.js
+const path = require('path');
+// 一、Todo: 入口(entry)
+module.exports = {
+	entry : './src/index.js',
+};
+// 单个入口(简写)语法 entyy:string | [string]
+// entry:{ main: './src/index.js' }的简写
+// entry:['./src/file_1.js','./src/file_2.js'],output:{filename:'bundle.js'} 多个依赖文件绘制在一个"chunk"中
+
+// 对象语法 entry: { <entryChunkName> string | [string] } | {}
+entry:{
+	app: './src/app.js',
+	adminApp: './src/adminApp.js'
+}
+// 描述入口的对象
+dependOn: // 当前入口所依赖的入口。他们必须在该入口被加载前被加载
+filename: // 指定要输出的文件名称
+import:  // 启动时需加载的模块
+library: // 指定library选项,为当前entry构建一个library
+runtime: // 运行时chunk的名字。设置了，就会创建一个新的chunk，webpack新版后可以设置为false，避免一个新的运行时chunk
+publicPath: // 该入口的输出文件在浏览器中被引用时，指定一个公共url地址
+// dependOn 和 runtime 不能在同一个入口同时使用
+// runtime 不能指向已存在的入口名称如下面的a2
+// dependOn 不能循环的引用
+entry:{
+	a2: 'depengdingfile.js',
+	b2: {
+		dependOn: 'a2',
+		import: './src/app.js'
+	}
+}
+// For example
+// 分离app(应用程序)和vendor(第三方库)入口
+// 配置 2 个单独的入口点
+entry:{ // webpack.confiig.js
+	main: './src/app.js',
+	vender: './src/vendor.js'
+}
+output:{ // webpack.prop.js
+	filename: '[name].[contenthash].bundle.js'
+}
+output:{ // webpack.dev.js
+	filename: '[name].bundle.js'
+}
+// 多页面应用程序
+entry:{ // 需要三个独立分离的依赖图
+	pageOne: './src/pageOne/index.js',
+	pageTwo: './src/pageTwo/index.js',
+	pageThree: './src/pageThree/index.js',
+}
+// optimization.splitChunks 为页面间共享的应用程序代码创建bundle
+
+// 二、Todo: 输出(output)
+/*
+注意:即使可以存在多个entry起点,但只能指定一个output
+*/
+module.exports = {
+	entry: './src/index.js',
+	output: {
+	  path: path.resolve(__dirname, 'dist'),
+	  filename: 'bundle.js' // 将一个bundle.js文件输出到dist中
+	}
+}
+/*
+1、多入口起点
+例如多个入口起点或使用像CommonsChunkPlugin这样的插件,则应该使用占位符(substitutions)来确保每个文件具有唯一的名称
+*/
+module.exports = {
+	entry: {
+		app:'./src/index.js',
+		search: './src/search.js'
+	},
+	output: {
+	  path: path.resolve(__dirname, 'dist'),
+	  filename: '[name].js' // [name]指占位符，可以保证每个文件名的唯一
+	}
+}
+/*
+2、对资源使用CDN和hash的复杂示例
+如果编译时不知道publicPath是什么地址，可以留空,运行时通过入口起点文件中的__webpack_public_path__动态设置
+*/
+module.exports = {
+	output:{
+		path: '/home/proj/cdn/assets/[fullhash]',
+		publicPath: 'https://cdn.example.com/assets/[fullhash]/'
+	}
+}
+__webpack_public_path__ = myRuntimePublichPath;
+
+
+// 三、Todo: loader
+/*
+loader用于对模块的源代码进行转换。loader可以在import/require()模块时预处理文件。
+可以将文件从不同语言(如TypeScript)转换成JavaScript或将内联图像转换为data URL。
+loader允许你直接在JavaScript模块中import CSS文件。
+让webpack可以理解除了js和json之外的文件；有两个属性test(识别出哪些文件会被转换)、use(转换时应该使用哪个loader);
+*/
+module.exports = {
+	entry: './src/index.js',
+	output: {
+		filename:'bundle.js'
+	},
+	// test使用正则匹配
+	module: {
+		rules:[
+		  { test: /\.js$/, use: 'raw-loader' } // 当在require()/import 语句解析.js路径时，打包之前先use raw-loader转换一下
+		]
+	}
+}
+/*
+可以使用loader告诉webpack加载CSS文件、或将TypeScript转为JavaScript。首先得安装loader文件
+*/
+npm install --save-dev css-loader ts-loader
+moudle:{
+	rules:[
+	  { test: /\.css$/, use: 'css-loader' },
+	  { test: /\.ts$/, use: 'ts-loader' }
+	]
+}
+/*
+配置方式  configuration
+从右到左(从下到上)地取值(evaluate)/执行(execute)
+*/
+module:{
+	rules:[
+	  {
+	  	test: /\.css$/,
+	  	use: [
+	  	  { loader: 'style-loader' },
+	  	  {
+	  	  	loader: 'css-loader',
+	  	  	options: {
+	  	  		modules: true
+	  	  	}
+	  	  },
+	  	  { loader: 'sass-loader' }
+	  	]
+	  }
+	]
+}
+/*
+内联方式
+可以在import语句或与import方法相等的引入方式中指定loader。使用!将资源中的loader分开
+使用 ! 前缀,将禁用所有已配置的普通loader
+使用 !! 前缀,将禁用所有已配置的loader(preLoader、loader、postLoader)
+使用 -! 前缀,将禁用preLoader和loader,不禁用postLoader
+*/
+imoprt Style from 'style-loader!css-loader?modules!./styles.css';
+
+// 四、Todo: 插件(plugin) 可以 打包优化，资源管理，注入环境变量
+/*
+解决loader无法实现的其他事
+*/
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');  // 用户访问内置插件
+
+module.exports = {
+	module:{
+		rules:[
+ 		  { test: /\.js$/, use:'raw-loader' }
+		]
+	},
+	plugins: [
+	  new HtmlWebpackPlugin({ template: './src/index.html' })
+	]
+}
+// html-webpack-plugin 为应用程序生成一个HTML文件，并自动将生成的所有bundle注入到此文件中
+
+/*
+基于Promise的动态remote
+一般来说，remote 是使用 URL 配置的、也可以向remote传递一个promise
+*/
+module.exports = {
+	plugins: [
+	  new ModuleFederationPlugin({
+	  	name: 'host',
+	  	remotes:{
+	  		app1: 'app1@http://localhost:3001/remoteEntry.js'
+	  	}
+	  })
+	]
+}
+
+// 五、Todo: 模式(model) 通过development,production或none中之一，不同的环境
+module.exports = {
+	module: 'production' // 默认
+}
+
+// 六、Todo: 浏览器兼容性(browser compatibility) 支持所有符合ES5标准的浏览器(不支持ie8以下),
+// webpack的 import() 和 require.ensure() 需要 Promise.
+
+// 七、Todo: 环境(environment)
+
+
+
+npx webpack --config webpack.config.js
+/*
+--config可以配置任何文件,对拆分成多个文件的复杂配置有用
+*/
+
+
+
+提高性能
+/*
+  1.将webpack、node、npm版本提示到最新版本有助于提高性能，建立更高效的模块树和提高解析速度
+*/
+
+

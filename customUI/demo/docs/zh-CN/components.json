@@ -1,0 +1,187 @@
+[
+  {
+    "name": "更新日志",
+    "path": "/changelog"
+  },
+  {
+    "name": "开发指南",
+    "children": [
+      {
+        "path": "/installation",
+        "name": "安装"
+      },
+      {
+        "path": "/quickstart",
+        "name": "快速上手"
+      }
+    ]
+  },
+  {
+    "name": "组件",
+    "groups": [
+      {
+        "groupName": "Basic",
+        "list": [
+          {
+            "path": "/layout",
+            "title": "content-layout 页内布局"
+          },
+          {
+            "path": "/pdf",
+            "title": "Pdf 预览组件"
+          },
+          {
+            "path": "/tree",
+            "title": "tree 树形组件"
+          },
+          {
+            "path": "/image",
+            "title": "image 图片"
+          },
+          {
+            "path": "/menu",
+            "title": "menu 菜单组件"
+          },
+          {
+            "path": "/valudatecode",
+            "title": "valudatecode 验证"
+          },
+          {
+            "path": "/search",
+            "title": "search 搜索组件"
+          }
+        ]
+      },
+      {
+        "groupName": "Button",
+        "list": [
+          {
+            "path": "/button",
+            "title": "Button 按钮"
+          },
+          {
+            "path": "/checkbox",
+            "title": "checkbox 复选框"
+          },
+          {
+            "path": "/radio",
+            "title": "radio 单选框"
+          },
+          {
+            "path": "/switch",
+            "title": "switch 开关按钮"
+          },
+          {
+            "path": "/tabs",
+            "title": "tabs 切换组件"
+          }
+        ]
+      },
+      {
+        "groupName": "Form",
+        "list": [
+          {
+            "path": "/form",
+            "title": "form 表单"
+          },
+          {
+            "path": "/batch",
+            "title": "batch 批量新增"
+          },
+          {
+            "path": "/upload",
+            "title": "upload 上传文件"
+          },
+          {
+            "path": "/date",
+            "title": "date 日期选择器"
+          },
+          {
+            "path": "/input",
+            "title": "input 输入框"
+          },
+          {
+            "path": "/select",
+            "title": "select 下拉框"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "提示",
+    "groups": [
+      {
+        "groupName": "Notice",
+        "list": [
+          {
+            "path": "/message",
+            "title": "message 提示框"
+          },
+          {
+            "path": "/messageBox",
+            "title": "messageBox 提示弹框"
+          },
+          {
+            "path": "/loading",
+            "title": "loading 加载提示"
+          },
+          {
+            "path": "/dialog",
+            "title": "dialog 弹框"
+          },
+          {
+            "path": "/drawer",
+            "title": "drawer 抽屉"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "表格",
+    "groups": [
+      {
+        "groupName": "Table",
+        "list": [
+          {
+            "path": "/table",
+            "title": "table 表格"
+          }
+        ]
+      },
+      {
+        "groupName": "Pagination",
+        "list": [
+          {
+            "path": "/pagination",
+            "title": "pagination 分页器"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "工作流",
+    "groups": [
+      {
+        "groupName": "审批进度",
+        "list": [
+          {
+            "path": "/approve-progress",
+            "title": "approve progress 审批进度"
+          }
+        ]
+      },
+      {
+        "groupName": "审批状态",
+        "list": [
+          {
+            "path": "/approve-status",
+            "title": "approve status 审批状态"
+          }
+        ]
+      }
+    ]
+  }
+]

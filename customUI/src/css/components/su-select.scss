@@ -1,0 +1,271 @@
+// 选择框的右边图标的行高信息
+.el-select .el-input .el-input__suffix .el-input__suffix-inner .el-input__icon {
+  line-height: 32px;
+}
+
+.el-select-dropdown.is-multiple .el-select-dropdown__item .check {
+  top: 0 !important;
+}
+
+// 下拉选择项的列表视图的最大高度
+.el-select-dropdown__wrap {
+  max-height: 298px !important;
+  margin-bottom: 0 !important;
+  overflow: auto !important;
+}
+
+// 下拉选项的标题
+.su-select-option {
+  .option-title {
+    flex: auto;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}
+
+.multiple-footer-view {
+  padding: 16px 16px;
+  text-align: right;
+}
+
+//下拉框label文字
+.select-label {
+  font-size: $text-size-xs;
+  font-family: $--font-family;
+  text-align: right;
+  color: $color-text-primary;
+  line-height: 20px;
+  margin-right: 12px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+//下拉框样式
+.el-select {
+  height: $height-md;
+  line-height: $height-md;
+
+  .el-input__inner {
+    padding: 0 32px 0 12px !important;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    border-radius: 3px;
+    display: block;
+  }
+
+  .el-select__tags {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .el-tag.el-tag--info {
+    display: flex;
+    align-items: center;
+
+    .el-select__tags-text {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      color: $general100;
+    }
+
+    .el-tag__close.el-icon-close {
+      font-size: 12px;
+    }
+  }
+
+  // 处理多选请款下，多个tag布局问题：内容较长会出现换行
+  .el-select__tags > span {
+    display: flex;
+    max-width: calc(100% - 20px);
+
+    .el-tag.el-tag--info.su-select-first-tag,
+    .el-tag.el-tag--info.su-select-second-tag {
+      //flex: 1;
+    }
+
+    .el-tag.el-tag--info.su-select-amount-tag {
+      overflow: visible;
+      word-break: keep-all;
+    }
+  }
+}
+
+
+.el-select .el-input .el-icon-circle-close {
+  line-height: $height-md;
+}
+
+// 注释掉：下拉框选中箭头保留旋转
+//.el-select .el-input .el-select__caret.is-reverse {
+//  transform: rotate(180deg);
+//}
+
+//下拉框 下拉列表样式
+.el-select-dropdown {
+  max-width: 350px;
+  margin-top: 4px !important;
+  border: 1px solid $select-dropdown-border-color;
+  //box-shadow: 0px 2px 10px 0px $select-dropdown-boxShadow-color;
+  box-shadow: 0px 6px 12px 0px rgba(61, 67, 77, 0.10);
+
+  .el-select-dropdown__list {
+    padding: 0;
+
+    .el-select-dropdown__item.selected {
+      //color: $select-text-click-text-color;
+      font-weight: normal;
+      //background-color: $select-text-click-bg-color;
+      color: $blue100 !important;
+      background-color: $blue30 !important;
+    }
+
+    // 下拉选项的悬浮
+    .el-select-dropdown__item.hover,
+    .el-select-dropdown__item:hover {
+      //background-color: $select-text-hover-bg-color;
+      color: $general100;
+      background-color: $general30;
+    }
+
+    .el-select-dropdown__item {
+      line-height: $select-dropdown-height;
+      height: $select-dropdown-height;
+      font-size: $text-size-xs;
+      padding: 0 16px;
+    }
+  }
+
+  .el-select-dropdown__item.is-disabled,
+  .el-select-dropdown__item.is-disabled:hover {
+    color: $general60 !important;
+  }
+
+  .popper__arrow {
+    display: none;
+  }
+}
+
+//su-select样式
+.su-select {
+  .su-select-item {
+    margin-bottom: 23px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+
+// .el-select .el-input__inner::placeholder {
+//   height: 20px;
+//   line-height: 20px;
+//   font-size: $text-size-xs;
+//   font-family: $--font-family;
+//   text-align: left;
+//   color: $color-text-secondary;
+// }
+
+.el-select .el-input.is-focus .el-input__inner {
+  border: 1px solid $color-primary-light;
+  border-radius: 3px;
+}
+
+//.el-select .el-input.is-disabled .el-input__inner {
+//  background: $button-primary-disabled-plain;
+//  border: 1px solid $button-default-color;
+//}
+
+.el-select-dropdown__item.selected::after {
+  content: "" !important;
+}
+
+.el-tag.el-tag--info {
+  height: $height-xs;
+  background: rgba(149, 155, 166, 0.15);
+  border-radius: 4px;
+  font-size: $text-size-default;
+  text-align: left;
+  color: $color-text-primary-light;
+  /*max-width: 70%;*/
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.el-tag__close.el-icon-close {
+  background-color: unset;
+  transform: unset;
+  color: $color-text-primary-light;
+  font-size: $text-size-xs;
+  right: -4px;
+}
+
+.el-tag {
+  margin: 2px 0 2px 8px;
+}
+
+.el-select__tags-text {
+  height: 16px;
+  line-height: 16px;
+  vertical-align: middle;
+}
+
+.el-select-dropdown.is-multiple .el-select-dropdown__item.selected .check {
+  //background-color: $color-primary-light;
+  //border-color: $color-primary-light;
+  background-color: $blue100;
+  border-color: $blue100;
+}
+
+.el-select-dropdown.is-multiple .el-select-dropdown__item.selected .check:after {
+  transform: rotate(45deg) scaleY(1);
+}
+
+.el-select-dropdown.is-multiple .el-select-dropdown__item .check::after {
+  box-sizing: content-box;
+  content: "";
+  border: 2px solid $color-white;
+  border-left: 0;
+  border-top: 0;
+  height: 7px;
+  left: 4px;
+  position: absolute;
+  top: 1px;
+  transform: rotate(45deg) scaleY(0);
+  width: 3px;
+  transition: transform 0.15s ease-in 0.05s;
+  transform-origin: center;
+}
+
+.el-select-dropdown.is-multiple .el-select-dropdown__item .check {
+  display: block;
+  position: relative;
+  top: 2px;
+  border: 1px solid #dcdfe6;
+  border-radius: 2px;
+  box-sizing: border-box;
+  width: 14px;
+  height: 14px;
+  background-color: $color-white;
+  margin-right: 8px;
+  z-index: 1;
+  flex-shrink: 0;
+  transition: border-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46),
+  background-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46);
+}
+
+// 修复firefox浏览器下多选样式错乱问题
+.el-select__tags + .el-input {
+  height: auto;
+}
+
+.select-dropdown-footer-view {
+  padding: 17px 19px;
+  text-align: right;
+}

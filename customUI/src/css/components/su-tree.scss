@@ -1,0 +1,122 @@
+.su-tree {
+  color: $color-title;
+  //background-color: unset;
+
+  //.img-icon {
+  //width: $--icon-size-small;
+  //height: $--icon-size-small;
+  //}
+
+  .el-tree-node__content {
+    height: 36px;
+    //height: $height-lg;
+
+    .middle {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .tooltip-tree-node {
+      width: 100%;
+      overflow: hidden;
+    }
+  }
+
+  .leaf-label {
+    line-height: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+
+.su-clickable-tree {
+  background-color: unset !important;
+
+  .el-tree-node__content:hover {
+    background: $general30;
+  }
+
+  .is-current .el-tree-node__children .el-tree-node__content:hover {
+    //background-color: $general30;
+    background-color: unset;
+  }
+
+  .is-current .el-tree-node__content:hover {
+    background: $general40 !important;
+  }
+
+  .el-tree-node {
+    position: relative;
+  }
+
+  .el-tree-node.is-current {
+    &:before {
+      content: ' ';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 3px;
+      display: table-cell;
+      height: 36px;
+      background-color: $blue80;
+    }
+  }
+
+  .el-tree-node.is-current > .el-tree-node__content {
+    background-color: #E8F4FF;
+    //background-color: #CFE7FF;
+  }
+
+  .is-current .el-tree-node__content {
+    opacity: 1;
+    color: #0083FD !important;
+
+    .icon,
+    .title,
+    .leaf-label,
+    .el-tree-node__label {
+      //color: $blue100;
+      color: #0083FD;
+    }
+  }
+
+  .is-current .el-tree-node__children .el-tree-node__content {
+    background: unset;
+    color: unset !important;
+
+    .leaf-label,
+    .title,
+    .el-tree-node__label {
+      color: #3D434D;
+    }
+
+    .icon {
+      color: #999999;
+    }
+  }
+
+  // 深度重写，取消树结构的item的高度的限定
+  .el-tree-node__content {
+    //height: auto;
+    //padding: 10px 15px;
+  }
+
+  .el-tree {
+    background: unset;
+  }
+
+  .el-icon-caret-right {
+    color: #666f80;
+    font-size: 16px;
+    margin-left: 12px;
+    padding: 1px 2px 1px 1px;
+  }
+
+  .el-tree-node__expand-icon.is-leaf {
+    color: transparent;
+    cursor: default;
+  }
+}

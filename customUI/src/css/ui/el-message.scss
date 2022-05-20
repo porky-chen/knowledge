@@ -1,0 +1,44 @@
+//el-message样式修改
+.el-message {
+  min-width: $--message-min-width;
+  height: $--message-height;
+  line-height: $--message-height;
+  padding: $--message-padding;
+  font-size: $font-size-base;
+  font-family: $--family-yahei;
+  color: $blue100;
+  background-color: $blue40;
+  top: 6px !important;
+}
+
+.el-message.el-message--info, .el-message--default {
+  background-color: $blue40;
+
+  .el-message__icon, .el-message__content, .el-message__closeBtn {
+    color: $blue100;
+  }
+}
+
+.el-message.el-message--success {
+  background-color: $green40;
+
+  .el-message__icon, .el-message__content, .el-message__closeBtn {
+    color: $green100;
+  }
+}
+
+.el-message.el-message--warning {
+  background-color: $yellow40;
+
+  .el-message__icon, .el-message__content, .el-message__closeBtn {
+    color: $yellow100;
+  }
+}
+
+.el-message.el-message--error {
+  background-color: $red40;
+
+  .el-message__icon, .el-message__content, .el-message__closeBtn {
+    color: $red100;
+  }
+}

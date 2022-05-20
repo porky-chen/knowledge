@@ -1,0 +1,75 @@
+mongoDB-node
+1、增
+(1)、insertOne(obj = {key:value},function(err,res){}) 插入一条
+(2)、insertMany(obj = [{key:value},...],function(err,res){}) 插入多条
+(3)、insert(obj = {key:value},function(err,res){}) 插入
+
+2、查
+(1)、find({}).toArray(function(err,res){}) 查询所有 或 find({},function(err,res){}) 查询所有
+(2)、find(obj = {key:value},(err,res)=>{}) 条件查询
+(3)、find({"like":{$lt:50}}).pretty()   $lt 小于 pretty()格式化输出文档
+(4)、find({"like":{$lte:50}}).pretty()  $lte 小于或等于
+(5)、find({"like":{$gt:50}}).pretty()   $gt 大于
+(6)、find({"like":{$gte:50}}).pretty()  $gte 大于或等于
+(7)、find({"like":{$ne:50}}).pretty()   $ne 不等于
+(8)、find({$or:[{key1,:vlaue1},{key2:value2}]}).pretty() 条件OR 或
+(9)、find({key1,:vlaue1,key2:value2}).pretty()  AND 使用  可任意组合AND、OR
+
+3、改
+(1)、updateOne(whereObj = 查询条件,updateObj = {$set:{key:value}},(err,res)=>{}) 更新一条
+(2)、updateMany(whereObj = 查询条件,updateObj = {$set:{key:value}},(err,res)=>{}) 更新多条(匹配的条件有批量)
+
+4、删
+(1)、deleteOne(条件,(err,res)=>{}) 删除一条，匹配一条的条件
+(2)、deleteMany(条件,(err,res)=>{}) 删除多条，匹配多条的条件
+
+5、排序 sort() type:1 升序,type:-1 降序
+find().sort({type:1}).toArray(function(err,res){})
+
+6、查询分页 limit() 返回指定条数 skip() 指定跳过多少条
+(1)、find().limit(10).toArray((err,res)=>{}) 限制十条返回
+(2)、find().skip(10).limit(5).toArray((err,res)=>{}) 跳过10条读取5条数据
+
+7、$lookup 实现左连接
+
+8、$type (数据类型String、Number、...)
+(1)、find({key:{$type:'string'}}) 获取集合中title为string的数据
+
+9、createIndex(keys,options) 创建索引 1 升序，-1降序,getIndexes()查看集合索引,totalIndexSize()查看集合索引大小，dropIndexes()删除所有索引,dropIndex("索引名称")
+(1)、createIndex({"title":1,"description":-1}) title 索引 升序，description 索引 降序
+(2)、options的条件
+unique 是否唯一 Boolean default:false;
+name  索引名称  String  default:和字段名同一个
+expireAfterSeconds  设定集合的生存时间  Integer
+v   索引的版本号   index verson  default:mongo创建索引时运行的版本
+weights  索引的权重  document  在1至99999之间
+default_language  决定停用词及词干和词器的规则的列表  string  default:英语
+background  以后台方式创建索引，防止阻塞其他数据库操作  Boolean  default: false
+
+10、aggregate()聚合方法
+$sum        计算总和  aggregate([{$group:{_id:'$key(字段名)',新的Key:{$sum:$key(字段名)}}}])
+$avg        计算平均值
+$min        获取集合中所有文档对应值得最小值
+$max        获取集合中所有文档对应值得最大值
+$push       将值加入到一个数组中,不会判断是否有重复的值
+$addToSet	将值加入到一个数组中,会判断是否有重复的值,相同值在数组中已存在,则不加入
+$first		根据资源文档的排序获取第一个文档数据
+$last		根据资源文档的排序获取最后一个文档数据
+
+11、管道的概念
+$project : 修改输入文档的结构。可以用来重命名、增加或删除域,也可以用于创建计算结果以及嵌套文档。
+$match ： 用于过滤数据，只输出符合条件的文档。$match使用MongoDB的标准查询
+$limit : 限制聚合管道返回的文档数
+$skip : 跳过指定数量的文档，返回余下的文档
+$unwind : 将文档中的某一个数组类型字段拆分成多条，每条包含数组中的一个值
+$group : 将集合中的文档分组，可用于统计结果
+$sort ： 将输入文档排序后输出
+$geoNear : 输出接近某一地理位置的有序文档
+如：aggregate({$project : {_id:0,title:1,author}}) 查出包含title和author字段不包含_id；
+aggregate([{ $match : {score : { $gt: 70, $lte: 90 }} },{$group: { _id:null, count: { $sum: 1 } }}]) 管道操作先操作前在后
+
+12、副本(副本集)
+N个节点的集群、任何节点可作为主节点、所有写入操作都在主节点上、自动故障转移、自动恢复
+语法：mongo --port "PORT" --dbpath "YOUR_DB_DATA_PATH" --replSet "REPLICA_SET_INSTANCE_NAME"
+实例：mongo --port 27017 --dbpath "D:\set up\mongodb\data" --replSet rs0
+re.add(HOST_NAME:PORT)添加新成员，多台服务器来启动mongo服务,如res.add("mongod1.net:27017")

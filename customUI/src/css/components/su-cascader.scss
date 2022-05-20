@@ -1,0 +1,54 @@
+// 8项的高度
+.el-cascader-menu__wrap {
+  max-height: 298px !important;
+  min-height: 204px;
+  height: 100%;
+}
+
+// 选择项的行高信息
+.el-cascader .el-input .el-input__suffix .el-input__suffix-inner .el-input__icon {
+  line-height: 32px;
+}
+
+.el-popper.el-cascader__dropdown[x-placement^=bottom] {
+  margin-top: 6px;
+}
+
+.el-cascader {
+  height: $height-md;
+  line-height: $height-md;
+
+  .el-input__inner {
+    padding: 0 32px 0 12px !important;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    border-radius: 3px;
+    display: block;
+  }
+}
+
+.el-cascader__dropdown {
+  box-shadow: 0px 6px 12px 0px rgba(61, 67, 77, 0.10);
+
+  .el-cascader-menu__list {
+
+    .el-cascader-node {
+      // 隐藏最后一级的选中选项的勾选图标
+      &.is-active .el-cascader-node__prefix {
+        display: none;
+      }
+
+      &:hover, &.hover {
+        //color: #3D434D;
+        background-color: $general30;
+      }
+
+      &.is-active, &.in-active-path {
+        font-weight: normal;
+        color: $blue100 !important;
+        background-color: $blue30 !important;
+      }
+    }
+  }
+}

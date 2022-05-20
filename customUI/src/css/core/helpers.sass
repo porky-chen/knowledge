@@ -1,0 +1,28 @@
+@each $v in inline inline-block block
+  .#{$v}
+    display: $v !important
+
+.overflow-
+  @each $v in visible hidden scroll auto
+    &#{$v}
+      overflow: $v !important
+
+    &x-#{$v}
+      overflow-x: $v !important
+
+    &y-#{$v}
+      overflow-y: $v !important
+
+@each $v in content-box border-box
+  .#{$v}
+    box-sizing: $v !important
+
+.hidden
+  display: none !important
+
+.invisible
+  visibility: hidden !important
+
+@each $v in auto pointer not-allowed
+  .cursor-#{$v}
+    cursor: $v !important
