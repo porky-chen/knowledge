@@ -67,3 +67,151 @@ github上分支的合并
       git config --global http.sslVerify "false"
 修改本地账户
       ssh-keygen -t rsa -C "邮箱"  用户/dell/.ssh/把pub修改公钥
+
+GIT指令：
+
+删除分支
+git push origin --delete Chapater6   可以删除远程分支Chapater6git
+
+git branch -D Chapater8 可以删除本地分支（在主分支中）
+
+
+撤回本地commit
+
+git reset --soft HEAD^
+
+
+回滚:
+git reset --hard HEAD^  回滚上一次提交
+
+cat 'filename'
+q
+git reset --hard “版本号” 回滚到任意commit版本
+
+git reflog 查看提交指令记录
+
+git cherry-pick  '提交记录的版本号' 或
+git reset --hard '提交记录的版本号'   撤回指定提交
+
+git push --force  实现回滚远程仓库
+
+
+
+补充缺失代码
+git cherry-pick 版本号  复制commit的代码
+
+
+常见:
+
+mkdir '文件名'  新增文件夹
+
+cd '文件名'  进入文件
+
+git init  初始化
+
+git config user.name '用户名'
+
+git config user.emit '邮箱'
+
+git status  查看当前状态
+
+git diff 'filename'  查看修改内容
+
+git diff --cached | git diff --staged 对比工作区与最近一次提交的变更差异
+
+git diff <branch1> <branch2> 对比其他分支
+
+git add 'filename'  添加具体文件
+
+git add .  添加所有
+
+git commit -m '注释'  提交到本地内容注释
+
+git commit --amend --only -m '修改暂存区上一次commit'
+
+git log  查看日志
+
+git log --oneline 查看提交日志以一行一条形式
+
+git log --author '开发者' 查看某个开发者提交的log
+
+git log --grep 'keyword' 通过关键词搜索
+
+git log --name-status --oneline  查看提交文件
+
+git diff HEAD -- 'filename'  查看工作区和版本库里面最新版本的区别
+
+git checkout -- 'filename'  丢弃工作区的修改
+
+git reset HEAD <file> 可以把暂存区的修改撤销掉
+
+git rm --cache <file>  将文件从暂存区撤回工作区
+
+git rm <file> 版本库删除文件 或 删除工作区/暂存区的文件
+
+git push -u origin master
+
+
+git remote -v 查看远程库信息
+
+
+git remote rm origin  删除origin
+
+git revert 撤销类
+
+
+分支管理
+
+git checkout -b  '分支名'  新建和切换分支
+
+git branch 分支情况
+
+git merge '分支'  合并分支
+
+git branch -d dev  删除dev分支
+
+git switch -c dev  创建并切换到新dev分支
+
+git branch <name>  创建分支
+
+git log --graph --pretty=oneline --abbrev-commit  看到分支的合并情况
+
+git merge --no-ff -m "merge with no-ff" dev  --no-ff表示禁用Fast forward 后面注释 dev分支
+
+
+// Bug分支
+git stash  可以把当前工作现场“储藏”起来
+
+git stash list 查看存储
+
+git stash apply 恢复
+
+git stash drop 删除存储区
+
+git stash pop  恢复同时把stash内容删除
+
+git stash apply stash@{0}  恢复指定的stash
+
+
+
+git cherry-pick 版本号  复制一个特定的提交到当前分支
+
+
+
+git branch --set-upstream-to=origin/dev dev 指定本地dev分支与远程origin/dev分支的链接
+git branch --set-upstream-to <branch-name> origin/<branch-name>
+
+
+
+git rebase
+
+git log --graph --pretty=oneline --abbrev-commit
+
+
+Esc Shift+: wq 退出git Insert编辑模式
+
+
+git reset --hard origin/master  首次拉取代码保证最新
+
+
+git commit --no-verify -m "" 不考虑之前记录
